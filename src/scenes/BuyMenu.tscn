@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://data/assets/weaponspng/laser.png" type="Texture" id=1]
+[ext_resource path="res://src/scenes/WeaponLayout.tscn" type="PackedScene" id=2]
+[ext_resource path="res://data/assets/weaponspng/katana.png" type="Texture" id=3]
+[ext_resource path="res://data/fonts/DejaVuSans.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://data/assets/weaponspng/grenede_launcher.png" type="Texture" id=5]
+[ext_resource path="res://data/assets/weaponspng/shotgun.png" type="Texture" id=6]
+[ext_resource path="res://data/assets/weaponspng/pistol.png" type="Texture" id=7]
+[ext_resource path="res://data/assets/3dweaponspng/s3DHammer2TC.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 42.0
+margin_top = 36.0
+margin_right = 982.0
+margin_bottom = 564.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 940.0
+margin_bottom = 216.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 278.0
+margin_right = 662.0
+margin_bottom = 216.0
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 220.0
+margin_right = 940.0
+margin_bottom = 258.0
+custom_fonts/font = SubResource( 1 )
+text = "Hammer"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 262.0
+margin_right = 940.0
+margin_bottom = 528.0
+columns = 2
+
+[node name="Hammer" parent="CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 468.0
+margin_bottom = 86.0
+weaponName = "Hammer"
+
+[node name="Pistol" parent="CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 472.0
+margin_top = 0.0
+margin_right = 940.0
+margin_bottom = 86.0
+icon = ExtResource( 7 )
+weaponName = "Pistol"
+
+[node name="Shotgun" parent="CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 90.0
+margin_right = 468.0
+margin_bottom = 160.0
+icon = ExtResource( 6 )
+weaponName = "Shotgun"
+
+[node name="GrenedeLauncher" parent="CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 472.0
+margin_top = 90.0
+margin_right = 940.0
+margin_bottom = 160.0
+icon = ExtResource( 5 )
+weaponName = "GrenedeLauncher"
+
+[node name="Laser" parent="CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 164.0
+margin_right = 468.0
+margin_bottom = 266.0
+icon = ExtResource( 1 )
+weaponName = "Laser"
+
+[node name="Katana" parent="CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 472.0
+margin_top = 164.0
+margin_right = 940.0
+margin_bottom = 266.0
+icon = ExtResource( 3 )
+weaponName = "Katana"

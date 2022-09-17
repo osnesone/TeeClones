@@ -105,6 +105,7 @@ func _physics_process(dt):
 	displaydistance()
 
 func rel_h():
+	$KinematicBody/HookLine.visible = false
 	if has_node("Hook"):
 		$Hook.free()
 

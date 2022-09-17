@@ -11,7 +11,6 @@ const JUMP_VEL = 40
 const HACC = 150
 const HVEL = 200
 const MAX_HLEN = 50
-const HOOKV = 200
+const HOOKV = 1000
 const HOOKDIS = 2
-
-
+const RSPEED = 30

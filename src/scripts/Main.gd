@@ -4,18 +4,11 @@ var tee_scene = preload("res://src/scenes/Tee.tscn")
 var teeIn
 var base_pos: Vector3
 var id: int = 0
+var is_buying: bool = false
 
 func _ready():
 	base_pos = $Position3D.global_transform.origin
 	
-func _input(event):
-	if event is InputEventKey and event.is_pressed():
-		if event.scancode == KEY_ESCAPE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		if event.scancode == KEY_P:
-			for n in get_tree().get_nodes_in_group("player"):
-				n.reload_me()
-
 func _on_Play_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$RoundTimer.start()
@@ -42,3 +35,14 @@ func init_tee():
 	teeIn.current_camera = true
 	add_child(teeIn)
 	id += 1
+
+func _process(dt):
+	if Input.is_action_just_pressed("buy"):
+		if !is_buying:
+			is_buying = true
+			$BuyMenu.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			is_buying = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			$BuyMenu.hide()
