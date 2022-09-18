@@ -115,7 +115,7 @@ func rtrv_h():
 		$Hook.collided = false
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if !Globals.suspend_mouse and event is InputEventMouseMotion:
 		kinb.rotate_y((-event.relative.x) * mouse_sens)
 		head.rotate_x((event.relative.y) * mouse_sens)
 
@@ -181,13 +181,14 @@ func get_player_input():
 	var hordir = get_input_direction()
 	inp.hordir = Vector2(hordir.x, hordir.z)
 	inp.camrot = Vector2(head.rotation.x, kinb.rotation.y)
-	
-	if Input.is_action_just_pressed("hook"):
-		inp.hookst = JUST_PRESSED
-	elif Input.is_action_just_released("hook"):
-		inp.hookst = JUST_RELEASED
-	elif Input.is_action_pressed("hook"):
-		inp.hookst = PRESSED
+
+	if !Globals.suspend_mouse:
+		if Input.is_action_just_pressed("hook"):
+			inp.hookst = JUST_PRESSED
+		elif Input.is_action_just_released("hook"):
+			inp.hookst = JUST_RELEASED
+		elif Input.is_action_pressed("hook"):
+			inp.hookst = PRESSED
 
 	if Input.is_action_just_pressed("jump"):
 		inp.jumpst = JUST_PRESSED

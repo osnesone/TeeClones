@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 WorldParams="*res://src/scripts/WorldParams.gd"
 Weapons="*res://src/scripts/Weapons.gd"
+Globals="*res://src/scripts/Globals.gd"
 
 [input]
 

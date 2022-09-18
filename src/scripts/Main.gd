@@ -4,7 +4,6 @@ var tee_scene = preload("res://src/scenes/Tee.tscn")
 var teeIn
 var base_pos: Vector3
 var id: int = 0
-var is_buying: bool = false
 
 func _ready():
 	base_pos = $Position3D.global_transform.origin
@@ -36,13 +35,16 @@ func init_tee():
 	add_child(teeIn)
 	id += 1
 
-func _process(dt):
+func _process(_dt):
 	if Input.is_action_just_pressed("buy"):
-		if !is_buying:
-			is_buying = true
+		if !Globals.is_buying:
+			Globals.is_buying = true
+			Globals.suspend_mouse = true
 			$BuyMenu.show()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
-			is_buying = false
+			Globals.is_buying = false
+			Globals.suspend_mouse = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			$BuyMenu.hide()
+	$BuyMenu/CenterContainer/VBoxContainer/Currency.text = "$" + str(Globals.currency)
